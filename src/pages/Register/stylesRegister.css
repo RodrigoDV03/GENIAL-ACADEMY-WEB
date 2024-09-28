@@ -103,3 +103,24 @@ form .login__link{
 .login__link p a:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    .register__wrapper {
+        margin: auto;
+    }
+
+    .register__wrapper .register__form__box {
+        padding: 16px;
+    }
+
+    .register__input__box input{
+        height: 24px;
+    }
+
+
+    .register__Button {
+        margin: 10px auto;
+        width: 100%;
+        padding: 15px;
+    }
+}

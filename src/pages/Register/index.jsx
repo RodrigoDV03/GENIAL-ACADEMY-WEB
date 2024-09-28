@@ -1,42 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "./stylesRegister.css";
+import { registerUser, clearState } from "../../redux/features/register/registerSlice";
 import ModalRegister from "../../components/Modals/Modal_Register/modalRegister";
+import ModalErrorRegister from "../../components/Modals/Modal_Register/modalErrorRegister";
+import "./stylesRegister.css";
 
 export const Register = () => {
-    const [formValues, setFormValues] = useState({name: "", lastname: "", username: "", email: "", password: ""});
+    const [formValues, setFormValues] = useState({name:"", lastname:"", username:"",email: "", password: ""});
     const [showPassword, setShowPassword] = useState(false);
-    const [isSubmit, setIsSubmit] = useState(false);
-    const [formError, setFormError] = useState("");
+    const dispatch = useDispatch();
+    const { isLoading, error, isRegistered } = useSelector((state) => state.register || {});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormValues({ ...formValues, [name]: value });
-    }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (formValues.username !== "admin" && formValues.email !== "admin@gmail.com") {
-            setIsSubmit(true);
-            setFormError("");
-        } else {
-            setFormError("Ya existe un usuario con estas credenciales");
-            setIsSubmit(false);
-        }              
+        dispatch(registerUser(formValues));
     };
 
     const toggleShowPassword = () => {
         setShowPassword(!showPassword);
     };
 
+    useEffect(() => {
+        return () => {
+            dispatch(clearState());
+        };
+    }, [dispatch]);
+
+    useEffect(() => {
+        console.log("isLoading:", isLoading);
+        console.log("isRegistered:", isRegistered);
+        console.log("error:", error);
+    }, [isLoading, isRegistered, error]);
+
     return (
         <div className="register__container">
             <div className="register__image"></div>
             <div className="register__wrapper">
                 <div className="register__form__box">
-                    { isSubmit && 
+                    { isRegistered && 
                     (
-                        <ModalRegister isOpen={isSubmit} onClose={() => setIsSubmit(false)} />
+                        <ModalRegister isOpen={isRegistered} onClose={() => dispatch(clearState())} />
+                    )}
+                    { error && 
+                    (
+                        <ModalErrorRegister isOpen={!!error} onClose={() => dispatch(clearState())} errorMessage={error} />
                     )}
                     <form onSubmit={handleSubmit}>
                         <h1>HOLA! GENIALACADEMY</h1>
@@ -88,14 +101,9 @@ export const Register = () => {
                                 </button>
                             </div>
                         </div>
-                        {formError && (
-                            <p className="register__error-message">{formError}
-                            </p>
-                        )}
-
-                        <button type="submit" className="register__Button">
-                            Regístrate
-                        </button>        
+                        <button type="submit" className="register__Button" disabled={isLoading}>
+                            {isLoading ? "Registrando..." : "Regístrate"}
+                        </button>
 
                         <div className="login__link">
                             <p>¿Ya tienes una cuenta? <Link to="/">Inicia Sesión</Link></p>

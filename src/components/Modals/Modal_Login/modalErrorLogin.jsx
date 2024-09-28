@@ -1,22 +1,20 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './modalLogin.css';
+import React from "react";
+import "./modalLogin.css";
 
-const ModalErrorLogin = ({ isOpen, onClose }) => {
+const ModalErrorLogin = ({ isOpen, onClose, errorMessage }) => {
     if (!isOpen) return null;
 
     return (
         <div className="modal-Login-overlay">
-        <div className="modal-Login-container">
-            <div className="Contenido_Login">
-                <h1>Usuario o Contraseña incorrectos</h1>
-                <Link to="/login" className="Login_button" onClick={onClose}>
-                    <div className='Login-link'>Ok</div>
-                </Link>
+            <div className="modal-Login-container">
+                <div className="Contenido_Login">
+                    <h2>Error de Inicio de Sesión</h2>
+                    <p>{errorMessage}</p>
+                    <button onClick={onClose} className="Login_button">Cerrar</button>
+                </div>
             </div>
         </div>
-    </div>
-    )
-}
+    );
+};
 
 export default ModalErrorLogin;

@@ -30,11 +30,16 @@
     align-items: center;
 }
 
-.Contenido_Login h1{
+.Contenido_Login h2{
     color: #eee;
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+.Contenido_Login p{
+    color: #fff;
+    font-size: 18px;
 }
 
 .Login_Success_Image{

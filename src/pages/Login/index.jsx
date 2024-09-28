@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../redux/features/auth/authSlice";
 import { Link } from "react-router-dom";
-import "./stylesLogin.css";
 import ModalLogin from "../../components/Modals/Modal_Login/modalLogin";
+import ModalErrorLogin from "../../components/Modals/Modal_Login/modalErrorLogin";
+import "./stylesLogin.css";
 
 export const Login = () => {
-    const [formValues, setFormValues] = useState({ username: "", password: "" });
-    const [showPassword, setShowPassword] = useState(false);
-    const [isSubmit, setIsSubmit] = useState(false);
-    const [formError, setFormError] = useState("");
+    const [formValues, setFormValues] = useState({username: "", password: "" });
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
+    const dispatch = useDispatch();
+    const { isLoading, error, isAuthenticated } = useSelector((state) => state.auth);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -16,63 +20,48 @@ export const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (formValues.username === "admin" && formValues.password === "admin123") {
-            setIsSubmit(true);
-            setFormError("");
-        } else {
-            setFormError("Credenciales incorrectas. Inténtalo de nuevo.");
-            setIsSubmit(false);
-        }
+        dispatch(loginUser(formValues));
     };
 
-    const toggleShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
+    useEffect(() => {
+        if (isAuthenticated) {
+            setIsModalOpen(true);
+        }
+    }, [isAuthenticated]);
+
+    useEffect(() => {
+        if (error) {
+            setIsErrorModalOpen(true);
+        }
+    }, [error]);
 
     return (
         <div className="login__container">
             <div className="login__wrapper">
                 <div className="login__form__box">
-                    {isSubmit && (
-                        <ModalLogin isOpen={isSubmit} onClose={() => setIsSubmit(false)} />
+                    {isModalOpen && (
+                        <ModalLogin
+                            isOpen={isModalOpen}
+                            onClose={() => setIsModalOpen(false)}
+                        />
+                    )}
+                    {isErrorModalOpen && (
+                        <ModalErrorLogin isOpen={isErrorModalOpen} onClose={() => setIsErrorModalOpen(false)} errorMessage={error} />
                     )}
                     <form onSubmit={handleSubmit}>
                         <h1>HOLA! GENIALACADEMY</h1>
                         <h2>Inicia Sesión</h2>
                         <div className="login__input__box">
-                            <div className="login__input__title">Nombre de Usuario:</div>
-                            <input 
-                                type="text" 
-                                name="username" 
-                                value={formValues.username} 
-                                onChange={handleChange} 
-                            />
+                            <div className="login__input__title">Nombre de usuario:</div>
+                            <input type="email" name="email" value={formValues.username} onChange= 
+                            {handleChange} required />
                         </div>
                         <div className="login__input__box">
                             <div className="login__input__title">Contraseña:</div>
-                            <div className="login__password__input__container">
-                                <input 
-                                    type={showPassword ? "text" : "password"} 
-                                    name="password" 
-                                    value={formValues.password} 
-                                    onChange={handleChange} 
-                                />
-                                <button 
-                                    type="button" 
-                                    className="login__toggle__password" 
-                                    onClick={toggleShowPassword}
-                                >
-                                    {showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
-                                </button>
-                            </div>
+                            <input type="password" name="password" value={formValues.password} onChange={handleChange} required />
                         </div>
-                        {formError && (
-                            <p className="login__error-message">
-                                {formError}
-                            </p>
-                        )}
-                        <button type="submit" className="login__Button">
-                            Ingresar
+                        <button type="submit" className="login__Button" disabled={isLoading}>
+                            {isLoading ? "Cargando..." : "Iniciar Sesión"}
                         </button>
                         <div className="register__link">
                             <p>¿No tienes una cuenta? <Link to="/register">Regístrate</Link></p>

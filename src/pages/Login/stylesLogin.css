@@ -70,6 +70,7 @@ button.login__toggle__password{
     color: #fff;
     cursor: pointer; 
     transition: all 0.8s;
+    min-width: 200px;
 }
 
 .login__Button:hover{
@@ -102,4 +103,41 @@ form .register__link{
 
 .register__link p a:hover{
     text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    .login__container {
+        justify-content: center;
+    }
+
+    .login__wrapper {
+        margin-right: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login__container {
+        justify-content: center;
+    }
+    .login__wrapper {
+        width: auto;
+    }
+    .login__Button {
+        margin: 10px auto;
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .login__wrapper {
+        margin: auto;
+        padding: 10px;
+    }
+    .login__wrapper .login__form__box {
+        padding: 20px;
+    }
+    .login__Button {
+        padding: 10px;
+    }
 }
