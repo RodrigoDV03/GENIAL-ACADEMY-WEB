@@ -1,0 +1,1 @@
+Para componentes comunes a toda la app

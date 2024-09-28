@@ -1,0 +1,105 @@
+.login__container{
+    background: url(/src/assets/images/login.png);
+    background-size: 100% 100%;
+    display: flex;
+    min-height: 100vh;
+    justify-content: right;
+}
+
+.login__wrapper{
+    margin: auto;
+    margin-right: 200px;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.login__wrapper .login__form__box{
+    padding: 40px;
+}
+
+form h1{
+    font-size: 24px;
+    text-align: center;
+    color: #4CAD95;
+    margin: 20px 0px;
+}
+
+form h2{
+    font-size: 18px;
+    text-align: center;
+}
+
+form .login__input__box{
+    font-size: 16px;
+    margin: 12px 0;
+}
+
+form .login__input__title{
+    font-size: 18px;
+}
+
+.login__input__box input{
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #0009;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+button.login__toggle__password{
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+    color: #4CAD95;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.login__Button{
+    margin: 10px 150px;
+    padding: 20px 40px;
+    padding-top: 20px;
+    background-color: #4CAD95;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer; 
+    transition: all 0.8s;
+}
+
+.login__Button:hover{
+    background-color: #296F5D;
+}
+
+p.login__error-message{
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    min-height: 16px;
+    margin: 5px 0; 
+}
+
+form .register__link{
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+}
+
+.register__link p{
+    color: #000;
+}
+
+.register__link p a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.register__link p a:hover{
+    text-decoration: underline;
+}

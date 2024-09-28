@@ -1,0 +1,64 @@
+/* Estilos para el overlay del modal */
+.modal-Register-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 1000;
+}
+
+.modal-Register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4CAD95;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.Contenido_Register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Contenido_Register h1{
+    color: #eee;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.Register_Success_Image{
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+.Register_button {
+    text-decoration: none;
+    height: 50px;
+    width: 100px;
+    background-color: #8FC6EF;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.Register_button:hover {
+    background-color: #6DA4CD;
+}
+
+.Register-link{
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}

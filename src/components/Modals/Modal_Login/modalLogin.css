@@ -1,0 +1,64 @@
+/* Estilos para el overlay del modal */
+.modal-Login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 1000;
+}
+
+.modal-Login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4CAD95;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.Contenido_Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Contenido_Login h1{
+    color: #eee;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.Login_Success_Image{
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+.Login_button {
+    height: 50px;
+    width: 100px;
+    background-color: #8FC6EF;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.Login_button:hover {
+    background-color: #6DA4CD;
+}
+
+.Login-link{
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
