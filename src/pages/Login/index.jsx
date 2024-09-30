@@ -48,12 +48,12 @@ export const Login = () => {
                     {isErrorModalOpen && (
                         <ModalErrorLogin isOpen={isErrorModalOpen} onClose={() => setIsErrorModalOpen(false)} errorMessage={error} />
                     )}
-                    <form onSubmit={handleSubmit}>
+                    <form className="login__form" onSubmit={handleSubmit}>
                         <h1>HOLA! GENIALACADEMY</h1>
-                        <h2>Inicia Sesión</h2>
+                        <h2>Iniciar Sesión</h2>
                         <div className="login__input__box">
                             <div className="login__input__title">Nombre de usuario:</div>
-                            <input type="email" name="email" value={formValues.username} onChange= 
+                            <input type="text" name="username" value={formValues.username} onChange= 
                             {handleChange} required />
                         </div>
                         <div className="login__input__box">

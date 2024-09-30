@@ -12,7 +12,7 @@ const ModalLogin = ({ isOpen, onClose }) => {
                     <h2>Bienvenido a GenialAcademy</h2>
                     <img src='/src/assets/images/Login_Success_Icon.png' className='Login_Success_Image' />
                     <Link to="/home" className="Login_button" onClick={onClose}>
-                        <div className='Login-link'>Ingresar</div>
+                    <div className='Login-link'>Ingresar</div>
                     </Link>
                 </div>
             </div>
