@@ -1,0 +1,61 @@
+/* Estilos para el overlay del modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0; /* Cambiado de right a left para asegurar que cubra toda la pantalla */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Asegurarse que el color de fondo sea correcto */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 1000;
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    width: 1000px;
+    background-color: #90CDBE;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #296E5D;
+}
+
+.Contenido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    width: 840px;
+}
+
+.Contenido h1{
+    color: #eee;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.Contenido .img{
+    height: 400px;
+    width: 100%;
+    background-image: url(/src/assets/images/estructura_examen_unmsm.png);
+    background-size: cover;
+    background-position: center;
+}

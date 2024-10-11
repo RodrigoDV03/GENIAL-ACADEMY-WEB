@@ -1,0 +1,64 @@
+.screen {
+    background-color: #4CAD95;
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    flex-direction: row;
+    margin-top: 6.25rem;
+}
+
+.p_container {
+    flex: 4;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+    margin-left: 200px;
+}
+
+.p_box {
+    text-align: left;
+}
+
+.box_item {
+    padding: 1rem;
+    color: #fff;
+}
+
+.p_title {
+    font-size: 20px;
+    font-weight: normal
+}
+
+.p_welcome {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.p_desc {
+    font-size: medium;
+    line-height: 30px;
+}
+
+.p_button {
+    background-color: #21433B;
+    border: none;
+    color:#fff;
+    font-weight: 500;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 3.125rem;
+}
+
+
+.bg_container {
+    flex: 6;
+    position: relative;
+}
+
+.bg_img {
+    position: absolute;
+    bottom: 0;
+    right: 0; 
+    height: auto;
+}

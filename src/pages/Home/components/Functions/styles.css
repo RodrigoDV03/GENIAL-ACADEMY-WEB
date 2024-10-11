@@ -1,0 +1,90 @@
+.f_screen {
+    background-color: #fff;
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sponsor_section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sponsor_item {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.f_content {
+    display: flex;
+    flex-direction: row;
+    margin: 2.5rem auto;
+}
+
+.f_colum_1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 6.25rem;
+}
+
+.f_colum_2 {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 60px
+}
+
+.f_title {
+    width: 30rem;
+    color: black;
+    font-weight: bold;
+    flex: 1;
+}
+
+.f_card {
+    width: 22rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.f_card_row_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f_card_icon {
+    border-radius: 50%;
+    border: none;
+    width: 4.8rem;
+    height: 4.0625rem;
+}
+
+.f_card_title{
+    margin-left: 1.875rem;
+    font-weight: 600;
+}
+
+.color_yellow {
+    background-color: #F0C179
+}
+
+.color_gray {
+    background-color: #54716F
+}
+
+.color_lila {
+    background-color: #BCC4F3
+}
+
+.color_red {
+    background-color: #F14336
+}
+

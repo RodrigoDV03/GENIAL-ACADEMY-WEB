@@ -1,0 +1,120 @@
+/* Estilos para el overlay del modal */
+.usermodal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 1000;
+    padding-top: 80px;
+    padding-right: 20px;
+}
+
+.usermodal-container {
+    background: #fff;
+    border-bottom-left-radius: 20px;
+    height: 600px;
+    width: 450px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/*Estilos header modal*/
+
+.modal-header {
+    height: 200px;
+    background-color: #4CAD95;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: auto;
+}
+
+.avatar {
+    margin-top: 30px;
+    width: 80px;
+    height: 80px;
+    background-color: #3E6D62;
+    border-radius: 50%;
+}
+
+.modal-header h2 {
+    margin: 0;
+    padding: 20px 0;
+}
+
+/*Estilos body modal*/
+
+.modal-first-content, .modal-second-content {
+    height: 200px;
+    padding: 20px;
+}
+
+.modal-menu {
+    list-style: none;
+    padding: 0;
+}
+.modal-menu li {
+    margin: 25px 0;
+    background-color: rgba(76, 173, 149, 0.2);
+    border-radius: 50px;
+}
+
+.modal-menu li:hover {
+    background-color: #7ddca7;
+}
+
+.modal-menu a {
+    height: 40px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button, a .menu-button {
+    background: #4CAD95;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu-button:hover {
+    background: #5cbca7;
+}
+
+.modal-second-content{
+    border-top: solid 1px #90CDBE;
+}
+
+.icon-profile::before {
+    content: url('/src/assets/images/user_icon.png');
+    margin-right: 30px;
+}
+
+.icon-todo::before {
+    content: url('/src/assets/images/to_do_icon.png');
+    margin-right: 30px;
+}

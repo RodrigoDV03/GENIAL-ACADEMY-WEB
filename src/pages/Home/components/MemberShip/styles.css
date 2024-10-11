@@ -1,0 +1,82 @@
+.m_screen {
+    background-color: #fff;
+    width: 100%;
+    height: 45rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.m_title {
+    padding: 2rem;
+    display: flex;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.m_container {
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.m_card {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 30rem;
+    align-items: center;
+    justify-content: center;
+
+    margin: 2rem;
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: #C9E6DF;
+    box-shadow: 0px 3px 5px #646464;
+}
+
+.up {
+    margin-top: -6rem;
+    height: 35rem;
+}
+
+.m_card_features p {
+    margin: 1rem;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.m_card .m_card_price {
+    margin: 1rem;
+    color: #296F5D;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.m_card_title {
+    margin: 1rem;
+    color: #000;
+    font-weight: bold;
+    font-size: large;
+}
+
+.m_card_button {
+    background-color: #4CAD95;
+    color: #fff;
+    border: none;
+    margin: 2rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 1rem;
+}
+
+.m_card_button:hover {
+    background-color: #3f917c;
+    cursor: pointer;
+}

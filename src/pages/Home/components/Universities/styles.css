@@ -1,0 +1,57 @@
+.u_screen {
+    margin-top: 3.125rem;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.u_title {
+    padding: 2rem;
+    display: flex;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.u_grid {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.u_card_title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.u_card {
+    border-radius: 1rem;
+    background-color: #83B4A8;
+    height: 17rem;
+    width: 15rem;
+    margin: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+
+.u_card_img img{
+    width: 12rem;
+    height: 12rem;
+    padding: 1rem;
+}
+
+.u_card:hover {
+    cursor: pointer;
+    background-color: #63b6a0;
+}
+
+.link{
+    text-decoration: none;
+}
