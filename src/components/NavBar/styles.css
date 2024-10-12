@@ -1,5 +1,4 @@
-
-header{
+header {
     background-color: #4CAD95;
     width: 100%;
     align-items: center;
@@ -19,15 +18,24 @@ header{
     justify-items: center;
 }
 
-.nav_container{
+.nav_container {
     flex: auto;
     flex-wrap: wrap;
 }
 
-.actions_container{
+.actions_container {
     flex: wrap;
     display: flex;
     align-items: center
+}
+
+.actions_container-img img{
+    width: 60px;
+    height: 60px;
+}
+
+.actions_container span{
+    font-weight: 500;
 }
 
 .nav {
@@ -35,12 +43,12 @@ header{
     justify-content: center;
 }
 
-.header__nav__item{
+.header__nav__item {
     list-style: none;
     margin: 0rem 3rem;
 }
 
-.nav_link{
+.nav_link {
     color: #fff;
     text-decoration: none;
     display: inline-block;
@@ -48,7 +56,7 @@ header{
     transition: all 0.1s;
 }
 
-.nav_link:hover{
+.nav_link:hover {
     color: #21433B;
     font-weight: 600;
 }
@@ -56,7 +64,7 @@ header{
 .action_button {
     margin: 1rem;
     border: none;
-    border-radius: 50%; 
+    border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
     background-color: #fff;
@@ -68,16 +76,17 @@ header{
     background-color: #ccc;
 }
 
-.open-modal-button{
+.open-modal-button {
     margin: 1rem;
     border: none;
-    border-radius: 50%; 
+    border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
     background-color: #21433B;
     align-items: center;
     cursor: pointer;
 }
+
 .dropdown_menu {
     display: none;
     position: absolute;
@@ -86,25 +95,25 @@ header{
     border-radius: 10px;
     box-shadow: 0px 8px 16px 0px rgba(255, 253, 253, 0.2);
     z-index: 1;
-  }
-  
-  .dropdown_menu li {
+}
+
+.dropdown_menu li {
     display: block;
-  }
-  
-  .dropdown_menu li a {
+}
+
+.dropdown_menu li a {
     padding: 12px 20px;
     color: #21433B;
     text-decoration: none;
     display: block;
     text-align: left;
-  }
-  
-  .dropdown_menu li a:hover {
+}
+
+.dropdown_menu li a:hover {
     background-color: #d4f7e3;
-  }
-  
-  /* Mostrar el menú desplegable al pasar el mouse por encima del elemento padre */
-  .header__nav__item.dropdown:hover .dropdown_menu {
+}
+
+/* Mostrar el menú desplegable al pasar el mouse por encima del elemento padre */
+.header__nav__item.dropdown:hover .dropdown_menu {
     display: block;
-  }
+}
