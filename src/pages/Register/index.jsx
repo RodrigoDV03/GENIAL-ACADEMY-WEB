@@ -38,17 +38,14 @@ export const Register = () => {
             <div className="register__image"></div>
             <div className="register__wrapper">
                 <div className="register__form__box">
-                    { isRegistered && 
-                    (
-                        <ModalRegister isOpen={isRegistered} onClose={() => dispatch(clearState())} />
-                    )}
-                    { error && 
-                    (
-                        <ModalErrorRegister isOpen={!!error} onClose={() => dispatch(clearState())} errorMessage={error} />
-                    )}
-                    <form className="register__form" onSubmit={handleSubmit}>
+                    { isRegistered && (<ModalRegister isOpen={isRegistered} onClose={() => dispatch(clearState())} /> )}
+                    { error && (<ModalErrorRegister isOpen={!!error} onClose={() => dispatch(clearState())} errorMessage={error} />)}
+                    <div className="register__titles">
                         <h1>HOLA! GENIALACADEMY</h1>
                         <h2>Regístrate</h2>
+                    </div>
+                    <form className="register__form" onSubmit={handleSubmit}>
+                        
                         <div className="register__input__box">
                             <div className="register__input__title">Nombre:</div> 
                             <input 

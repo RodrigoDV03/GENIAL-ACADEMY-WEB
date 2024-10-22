@@ -13,10 +13,10 @@ export const Login = () => {
     const dispatch = useDispatch();
     const { isLoading, error, isAuthenticated } = useSelector((state) => state.auth);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -39,18 +39,13 @@ export const Login = () => {
         <div className="login__container">
             <div className="login__wrapper">
                 <div className="login__form__box">
-                    {isModalOpen && (
-                        <ModalLogin
-                            isOpen={isModalOpen}
-                            onClose={() => setIsModalOpen(false)}
-                        />
-                    )}
-                    {isErrorModalOpen && (
-                        <ModalErrorLogin isOpen={isErrorModalOpen} onClose={() => setIsErrorModalOpen(false)} errorMessage={error} />
-                    )}
-                    <form className="login__form" onSubmit={handleSubmit}>
+                    {isModalOpen && (<ModalLogin isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>)} 
+                    {isErrorModalOpen && (<ModalErrorLogin isOpen={isErrorModalOpen} onClose={() => setIsErrorModalOpen(false)} errorMessage={error} />)}
+                    <div className="login__titles">
                         <h1>HOLA! GENIALACADEMY</h1>
                         <h2>Iniciar Sesión</h2>
+                    </div>
+                    <form className="login__form" onSubmit={handleSubmit}>
                         <div className="login__input__box">
                             <div className="login__input__title">Nombre de usuario:</div>
                             <input type="text" name="username" value={formValues.username} onChange= 
