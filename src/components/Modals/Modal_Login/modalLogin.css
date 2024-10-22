@@ -1,4 +1,3 @@
-/* Estilos para el overlay del modal */
 .modal-Login-overlay {
     position: fixed;
     top: 0;
@@ -7,8 +6,8 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center;
+    align-items: center;
     z-index: 1000;
 }
 
@@ -30,7 +29,7 @@
     align-items: center;
 }
 
-.Contenido_Login h1{
+.Contenido_Login h2{
     color: #eee;
     font-size: 32px;
     font-weight: bold;
@@ -61,4 +60,15 @@
     font-size: 18px;
     font-weight: bold;
     color: #fff;
+}
+
+@media (max-width: 1280px){
+    .modal-Login-container{
+        width: 80%;
+        padding: 50px 60px;
+    }
+
+    .Contenido_Login h2{
+        font-size: 28px;
+    }
 }

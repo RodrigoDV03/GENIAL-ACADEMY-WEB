@@ -4,49 +4,53 @@
     background-color: #4DAD95;
     overflow: hidden;
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     justify-content: right;
 }
 
 .register__wrapper{
-    margin: auto;
-    margin-right: 200px;
-    padding: 5px 20px;
+    margin: auto 250px auto auto;
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
-.register__wrapper .register__form__box{
-    padding: 40px;
+
+.register__form__box{
+    padding: 50px;
 }
 
-form h1{
-    font-size: 26px;
+.register__form{
+    margin: 0 10px;
+}
+
+.register__form h1{
+    font-size: 36px;
     text-align: center;
     color: #4CAD95;
     margin: 20px 0px;
 }
 
-form h2{
+.register__form h2{
     font-size: 18px;
+    font-weight: 600;
     text-align: center;
 }
 
-form .register__input__box{
-    font-size: 16px;
-    margin: 12px 0;
+.register__form .register__input__box{
+    margin: 10px 0;
 }
 
-form .register__input__title{
-    font-size: 16px;
-    font-weight: 500;
+.register__form .register__input__title{
+    font-size: 15px;
+    margin-bottom: 12px;
 }
 
 .register__input__box input{
     margin-top: 1.25rem;
     width: 100%;
-    height: 40px;
+    height: 50px;
     padding-left: 10px;
     outline: none;
     background-color: transparent;
@@ -55,19 +59,11 @@ form .register__input__title{
     font-size: 15px;
 }
 
-button.register__toggle__password{
-    background-color: transparent;
-    border:none;
-    cursor: pointer;
-    color: #4CAD95;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
 .register__Button{
-    margin: 10px 150px;
-    padding: 20px 40px;
-    padding-top: 20px;
+    width: 100%;
+    margin: 20px 0 0 0;
+    padding: 14px 120px;
+    font-size: 18px;
     background-color: #4CAD95;
     border: none;
     border-radius: 10px;
@@ -84,19 +80,19 @@ button.register__toggle__password{
 
 p.register__error-message{
     color: red;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
     min-height: 16px;
     margin: 5px 0;
 }
 
-form .login__link{
-    font-size: 14px;
+.register__form .login__link{
     text-align: center;
     padding: 20px;
 }
 
 .login__link p{
+    font-size: 15px;
     color: #000;
 }
 
@@ -108,4 +104,89 @@ form .login__link{
 
 .login__link p a:hover{
     text-decoration: underline;
+}
+
+@media (max-width: 1280px) {
+    .register__container{
+        background: #4CAD95;
+    }
+
+    .register__wrapper{
+        height: 90%;
+        width: 90%;
+        margin: auto;
+    }
+    
+    .register__form__box{
+        margin: 0 20px;
+        padding: 20px;
+    }
+    
+    .register__form{
+        margin: 0 5px;
+    }
+    
+    .register__form h1{
+        font-size: 28px;
+    }
+    
+    .register__form .register__input__box{
+        margin: 20px 0;
+    }
+
+    .register__form .register__input__title{
+        margin-bottom: 8px;
+    }
+
+    .register__input__box input{
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .register__Button{
+        padding: 14px 80px;
+    }
+}
+@media (max-width: 1280px) and (max-height: 768px) {
+    .register__wrapper{
+        height: 90%;
+        width: 90%;
+        margin: auto;
+    }
+
+    .register__form__box{
+        margin: 0 20px;
+        padding: 20px;
+    }
+
+    .register__form h1{
+        font-size: 20px;
+        margin: 8px 0;
+    }
+
+    .register__form h2{
+        font-size: 14px
+    }
+
+    .register__form{
+        margin: 0 5px;
+    }
+
+    .register__form .register__input__box{
+        margin: 10px 0;
+    }
+
+    .register__form .register__input__title{
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .register__input__box input{
+        height: 30px;
+    }
+
+    .register__Button{
+        font-size: 12px;
+        padding: 14px 80px;
+    }
 }

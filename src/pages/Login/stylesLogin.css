@@ -4,49 +4,51 @@
     background-color: #4DAD95;
     overflow: hidden;
     display: flex;
-    min-height: 100vh;
-    justify-content: right;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .login__wrapper{
-    margin: auto;
-    margin-right: 200px;
-    padding: 40px 20px;
+    margin: auto 250px auto auto;
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
-.login__wrapper .login__form__box{
-    padding: 40px;
+.login__form__box{
+    padding: 50px;
 }
 
-form h1{
-    font-size: 26px;
+.login__form{
+    margin: 0 10px;
+}
+
+.login__form h1{
+    font-size: 36px;
     text-align: center;
     color: #4CAD95;
-    margin: 20px 0px;
+    margin: 20px 0;
 }
 
-form h2{
+.login__form h2{
     font-size: 18px;
+    font-weight: 600;
     text-align: center;
 }
 
-form .login__input__box{
-    font-size: 16px;
-    margin: 12px 0;
+.login__form .login__input__box{
+    margin: 40px 0;
 }
 
-form .login__input__title{
-    font-weight: 500;
-    font-size: 16px;
+.login__form .login__input__title{
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 
 .login__input__box input{
     margin-top: 1.25rem;
     width: 100%;
-    height: 40px;
+    height: 50px;
     padding-left: 10px;
     outline: none;
     background-color: transparent;
@@ -55,18 +57,10 @@ form .login__input__title{
     font-size: 15px;
 }
 
-button.login__toggle__password{
-    background-color: transparent;
-    border:none;
-    cursor: pointer;
-    color: #4CAD95;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
 .login__Button{
-    margin: 10px 150px;
-    padding: 20px 40px;
+    width: 100%;
+    padding: 14px 120px;
+    font-size: 18px;
     background-color: #4CAD95;
     border: none;
     border-radius: 10px;
@@ -83,19 +77,19 @@ button.login__toggle__password{
 
 p.login__error-message{
     color: red;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
     min-height: 16px;
     margin: 5px 0; 
 }
 
-form .register__link{
-    font-size: 14px;
+.login__form .register__link{
     text-align: center;
     padding: 20px;
 }
 
 .register__link p{
+    font-size: 15px;
     color: #000;
 }
 
@@ -107,4 +101,42 @@ form .register__link{
 
 .register__link p a:hover{
     text-decoration: underline;
+}
+
+@media (max-width: 1280px) {
+    .login__container{
+        background: #4CAD95;
+        background-size: initial;
+    }
+
+    .login__wrapper{
+        width: 90%;
+        margin: auto;
+    }
+
+    .login__form__box{
+        margin: 0 20px;
+        padding: 20px;
+    }
+
+    .login__form{
+        margin: 0 5px;
+    }
+
+    .login__form h1{
+        font-size: 28px;
+    }
+
+    .login__form .login__input__box{
+        margin: 30px 0;
+    }
+
+    .login__input__box input{
+        font-size: 15px;
+    }
+
+    .login__Button{
+        padding: 14px 80px;
+        font-size: 14px;
+    }
 }
