@@ -1,0 +1,89 @@
+/* Estilos para el overlay del modal */
+.modal-window-overlay {
+    position: fixed;
+    top: 0;
+    left: 0; /* Cambiado de right a left para asegurar que cubra toda la pantalla */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.342); /* Asegurarse que el color de fondo sea correcto */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 1000;
+}
+
+/* Estilos para el contenedor del contenido del modal */
+.LevelContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 350px;
+    width: 900px;
+    background: #fff;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #111;
+}
+
+.LevelContent h1 {
+    color: #000;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.LevelContent .levelsContainer {
+    display: flex;
+}
+
+.LevelContent .level {
+    margin: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.level .level__image {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #c3c3c3;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.level .level__image:hover {
+    background-color: #aaa;
+    cursor: pointer;
+}
+
+.level .level__image.basic {
+    background-image: url(/src/assets/images/tortuga.png);
+}
+
+.level .level__image.medium {
+    background-image: url(/src/assets/images/ardilla.png);
+}
+
+.level .level__image.advanced {
+    background-image: url(/src/assets/images/triceratops.png);
+}
+
+.level .level__title {
+    margin-top: 30px;
+    justify-content: center;
+}

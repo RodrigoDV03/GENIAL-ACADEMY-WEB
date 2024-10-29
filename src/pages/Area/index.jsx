@@ -187,7 +187,7 @@ export const Area = () => {
         <div id="contenedor2">
           <h1 id="titulo">
             BIENVENIDO AL
-            <br /> {area ? area.codArea : area_id}
+            <br /> {area ? area.codArea :  area_id}
           </h1>
           <div id="container">
             <h3>
