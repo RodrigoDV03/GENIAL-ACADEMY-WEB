@@ -1,0 +1,30 @@
+.navBar-container{
+    position: sticky;
+}
+
+.user-welcome {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 3rem;
+}
+
+.user-welcome h1{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.user-background {
+    background-color: #629689;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-background img{
+    width: 4.375rem;
+}

@@ -1,0 +1,117 @@
+.banner__university{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: #4CAD95;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding: 60px 20px;
+}
+
+.banner__figure img{
+    width: 300px;
+}
+
+.banner__text{
+    width: 60%;
+}
+
+.text__title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 6.25rem;
+}
+
+.text__title h1{
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+.text__title img{
+    height: 10rem;
+    width: 10rem;
+}
+
+.text__paragraph{
+    color: white;
+    margin-top: 1.25rem;
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+#btnregresaru {
+    background-color: #296e5d;
+    background-image: url(/src/assets/images/back_arrow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    height: 47px;
+    width: 67px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.main__areas{
+    margin: 6.25rem 0;
+    text-align: center;
+}
+
+.areas{
+    margin-top: 3.125rem;
+    display: grid;
+    grid-template-columns: repeat(3,140px);
+    gap:6.25rem;
+    place-content: center;
+}
+
+.button__image{
+    place-content: center;
+    height: 8.75rem;
+    background-color: #E1E1E1;
+    border-radius: 1.25rem;
+    box-shadow: 0px 7px 5px #D9D9D9;
+}
+
+.button__image:hover{
+    background-color:#CDCDCD;
+}
+
+.button__text{
+    margin-top: 1.875rem;
+}
+
+.button__text h4{
+    font-size: 22px;
+}
+
+.buttonContainer{
+    height: 40px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.buttonContainer Button{
+    color: #fff;
+    margin-top: 2.5rem;
+    border: none;
+    padding: .9375rem 2.5rem;
+    background-color: #4CAD95;
+    border-radius: 3.125rem; 
+    transition: all 0.7s;
+}
+
+.buttonContainer Button:hover{
+    background-color: #296E5D;
+    cursor: pointer;
+}

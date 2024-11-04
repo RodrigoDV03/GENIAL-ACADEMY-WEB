@@ -1,0 +1,8 @@
+.content{
+    display: flex;
+    flex-direction: row;
+}
+
+.home-main{
+    width: 100%;
+}

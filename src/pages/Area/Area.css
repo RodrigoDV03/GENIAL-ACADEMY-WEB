@@ -1,0 +1,162 @@
+#section1 {
+    background-color: #4CAD95;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+}
+
+#section1 img{
+    width: 500px;
+}
+
+#navigation {
+    margin-bottom: 1.875rem;
+}
+
+#titulo {
+    letter-spacing: 0.05em;
+    line-height: 2.0;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+#container h3 {
+    font-size: 16px;
+    font-weight: 400;
+} 
+
+h1,
+h3 {
+    color: #FFFFFF;
+}
+
+#btnregresar {
+    background-color: #296e5d;
+    background-image: url(/src/assets/images/back_arrow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    height: 47px;
+    width: 67px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 2rem;
+}
+
+#btnregresar:hover {
+    background-color: #91b8ad;
+}
+
+#section2 {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+#titulo2 {
+    margin-bottom: 50px;
+    font-size: 26px;
+    color: #000000;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 120px;
+    margin-bottom: 50px;
+}
+
+.circle-button {
+    background-color: #d1e7dd;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.circle-button img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.circle-button span {
+    color: #333;
+    font-size: 0.9em;
+}
+
+.circle-button:hover {
+    background-color: #bcd5ce;
+}
+
+#section3 {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.exam-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 150px;
+    margin-bottom: 120px;
+}
+
+#titulo3 {
+    margin-bottom: 50px;
+    font-size: 26px;
+    color: #000000;
+    text-align: center;
+}
+
+.exam-button {
+    background-color: #79c1af;
+    border-radius: 10%;
+    width: 200px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.exam-button:hover {
+    background-color: #419d86;
+}
+
+.exam-button img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+span {
+    font-weight: 500;
+}
+
+.link {
+    text-decoration: none;
+}
