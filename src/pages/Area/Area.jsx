@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import "./styles.css";
+// import axios from "axios";
+import "./Area.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { NavBar } from "../../components/NavBar";
-import { Footer } from "../../components/Footer";
 
 export const Area = () => {
   const navigate = useNavigate();
@@ -162,32 +160,29 @@ export const Area = () => {
 
   return (
     <div>
-      <NavBar></NavBar>
+      <div id="navigation">
+        <button
+          name="btnregresar"
+          id="btnregresar"
+          onClick={() => navigate(-1)}
+        ></button>
+         <h4 id="btnunmsm">
+          {university ? university.acronym : uni_id} &gt;{" "}
+          {area ? area.codArea : area_id}
+        </h4>
+      </div>
       <section id="section1">
-        <div id="contenedor1">
-          <div id="navigation">
-            <h4 id="btnunmsm">
-              {university ? university.acronym : uni_id} &gt;{" "}
-              {area ? area.codArea : area_id}
-            </h4>
-            <button
-              name="btnregresar"
-              id="btnregresar"
-              onClick={() => navigate(-1)}
-            ></button>
-          </div>
-          <p>
+        <div>
             <img
-              src="/src/assets/images/principal.png"
-              alt="Imagen Principal"
-              id="imgprincipal"
+            src="/src/assets/images/principal.png"
+            alt="Imagen Principal"
+            id="imgprincipal"
             />
-          </p>
         </div>
         <div id="contenedor2">
           <h1 id="titulo">
             BIENVENIDO AL
-            <br /> {area ? area.codArea :  area_id}
+            <br /> {area ? area.codArea : area_id}
           </h1>
           <div id="container">
             <h3>
@@ -266,7 +261,6 @@ export const Area = () => {
           </a>
         </div>
       </section>
-      <Footer></Footer>
     </div>
   );
 };

@@ -1,12 +1,10 @@
-import "./styles.css"
-import axios from "axios";
+import "./Courses.css"
+// import axios from "axios";
 import { useState , useEffect} from "react";
-import { NavBar } from "../../components/NavBar";
-import { Footer } from "../../components/Footer";
 import ModalQuestions from "../../components/Modals/Modal_Questions/modalQuestion";
 import { useNavigate, useParams } from "react-router-dom";
 
-export const Course = () => {
+export const Courses = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [selectedTheme, setCurrentTheme] = useState("");
 
@@ -183,7 +181,6 @@ export const Course = () => {
 
     return (
         <div>
-            <NavBar></NavBar>
             <main>
                 <div id="navigation">
                     <h4 id="btnunmsm">{university? university.acronym : uni_id} &gt; {area? area.codArea : area_id} &gt; {course_id}</h4>
@@ -195,9 +192,8 @@ export const Course = () => {
                     <ModalQuestions theme={selectedTheme} isOpen={isModalOpen} onClose={handleCloseModal} />
                 </div>
             </main>
-            <Footer></Footer>
         </div>
     );
 }
 
-export default Course;
+export default Courses;

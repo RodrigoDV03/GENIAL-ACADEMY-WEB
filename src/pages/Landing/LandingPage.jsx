@@ -1,5 +1,4 @@
-import "./styles.css";
-import {NavBar} from "../../components/NavBar";
+import "./LandingPage.css";
 import {Footer} from "../../components/Footer";
 import {PresentationSection} from "./components/Presentation";
 import {FunctionSection} from "./components/Functions";
@@ -7,12 +6,13 @@ import {UniversitiesSection} from "./components/Universities";
 import {TutorialSection} from "./components/Tutorial";
 import {MemberShipSection} from "./components/MemberShip";
 import {FaqSection} from "./components/Faq";
+import { NavBarL } from "../../components/NavBarLanding/NavBarL";
 
-export const Home = () => {
+export const LandingPage = () => {
 
     return (
         <div>
-            <NavBar/>
+            <NavBarL/>
             <div className="content">
                 <PresentationSection></PresentationSection>
                 <FunctionSection></FunctionSection>

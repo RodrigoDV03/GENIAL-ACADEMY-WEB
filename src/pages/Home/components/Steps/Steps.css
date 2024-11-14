@@ -1,0 +1,50 @@
+.main-steps {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.main-steps h1{
+    color: black;
+    text-align: center;
+}
+
+.steps{
+    margin: 3.125rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 4rem;
+   
+}
+
+.steps-number{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.steps-number .number-images{
+    position: relative;
+}
+
+.number-img{
+    position: absolute;
+    top: 1.375rem;
+    left: .625rem;
+}
+
+.number-text{
+    margin-left: 1.875rem;
+}
+
+.number-text p{
+    text-align: justify;
+    line-height: 1.875rem;
+    font-size: 16px;
+}
+
+.number-text h3{
+    margin-bottom: .9375rem;
+    font-size: 23px;
+    font-weight: 700;
+    color: black;
+}
