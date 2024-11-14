@@ -5,6 +5,7 @@ import { Register } from "./pages/Register"
 import { University } from "./pages/University"
 import { Area } from "./pages/Area" 
 import { Course } from "./pages/Course"
+import { Library } from "./pages/Library"
 
 
 export const AppRouter = () => {
@@ -17,7 +18,7 @@ export const AppRouter = () => {
         <Route path="/home/:uni_id" element={<University />}></Route>
         <Route path="/home/:uni_id/:area_id" element={<Area/>}></Route>
         <Route path="/home/:uni_id/:area_id/:course_id" element={<Course/>}></Route>
-
+        <Route path="/library" element={<Library />}></Route>
 
         
       </Routes>
