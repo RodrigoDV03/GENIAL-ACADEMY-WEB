@@ -33,7 +33,7 @@ const Aside = () => {
                 <BsBackpack className='item-icon' /> Cursos
               </li>
             </Link>
-            <Link to={'./libros'} className="nav-item_link">
+            <Link to={'/libros'} className="nav-item_link">
               <li className={`nav-item ${activeLink === 'libros' ? 'active' : ''}`} onClick={() => handleLinkClick('libros')}>
                 <IoBookOutline className='item-icon' /> Libros
               </li>

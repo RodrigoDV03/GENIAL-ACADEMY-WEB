@@ -1,1 +1,123 @@
+.libraryMain{
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    background-color: #4CAD95;
+    margin: 100px auto;
+}
+
+.banner{
+    padding: 6.25rem 0;
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+}
+
+.banner__texts{
+    width: 40%;
+}
+
+.banner__texts .banner__title , .books__title{
+    color: white;
+    font-size: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+    text-align: center;
+}   
+
+.banner__texts .banner__paragraph{
+    line-height: 2.1875rem;
+    color: white;
+}
+
+#steps{
+    margin: 5rem 0;
+}
+
+#steps .steps__title{
+    margin-bottom: 5rem;
+    font-size: 26px;
+    letter-spacing: .100rem;
+    text-align: center;
+}
+
+.steps{
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 4rem;
+    margin: 0 auto;
+}
+
+.step__list{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.list__texts{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.step__list .list__images{
+    position: relative;
+}
+
+.number__img{
+    position: absolute;
+    top: 1.375rem;
+    left: .625rem;
+}
+
+.list__texts{
+    margin-left: 1.875rem;
+}
+
+.list__texts p{
+    text-align: justify;
+    line-height: 1.875rem;
+}
+
+.list__texts h3{
+    margin-bottom: .9375rem;
+    color: #4CAD95;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+#books{
+    margin: 0 auto;
+    width: 80%;
+}
+
+#books h2{
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.books__essential, .books__sciences, .books__select {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 3.75rem;
+    margin-bottom: 5rem;
+}
+
+.book__essential, .book__science, .book__select {
+    border-radius: .3125rem;
+    background-color: #90CDBE;
+    padding: 20px 30px 35px;
+    text-align: center;
+    cursor: pointer;
+}
 
