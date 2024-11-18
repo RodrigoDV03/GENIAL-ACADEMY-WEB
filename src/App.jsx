@@ -18,6 +18,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* Rutas de Autenticación sin Aside y sin el estilo de app-container */}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

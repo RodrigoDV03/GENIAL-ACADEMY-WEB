@@ -18,7 +18,7 @@ export const Universities = () => {
         {
             id:3,
             name: "UNAC",
-            imgUrl: "https://lh6.googleusercontent.com/proxy/2o-jgaimsMWuGD8OUqQiEJ7tierVU2TcI_MQclINhvbrecZZBRjkWm8n9g0zif_YBYA5n60MXZ7FMe6c"
+            imgUrl: "https://upload.wikimedia.org/wikipedia/commons/1/13/Universidad-nacional-del-callao.png"
         },
         {
             id:4,

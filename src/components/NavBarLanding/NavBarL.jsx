@@ -1,18 +1,12 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import ModalUser from "../Modals/Modal_User/modalUser";
 import "./NavBarL.css";
 
 export const NavBarL = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const username = localStorage.getItem("username");
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -23,65 +17,44 @@ export const NavBarL = () => {
       <nav className="nav_container">
         <ul className="nav">
           <li className="header__nav__item">
-            <Link to="/home" className="nav_link">
+            <Link to="#" className="nav_link">
               Inicio
             </Link>
           </li>
-
-          <li className="header__nav__item dropdown">
-            <span className="nav_link">Universidades</span>
-            <ul className="dropdown_menu">
-              <li>
-                <Link to="">UNMSM</Link>
-              </li>
-              <li>
-                <Link to="">UNI</Link>
-              </li>
-              <li>
-                <Link to="">UNAC</Link>
-              </li>
-              <li>
-                <Link to="">UNAL</Link>
-              </li>
-              <li>
-                <Link to="">UNFV</Link>
-              </li>
-              <li>
-                <Link to="">UNTELS</Link>
-              </li>
-              <li>
-                <Link to="">UNSA</Link>
-              </li>
-              <li>
-                <Link to="">UNE</Link>
-              </li>
-            </ul>
-          </li>
-
           <li className="header__nav__item">
-            <Link to="/todolist" className="nav_link">
-              To do list
-            </Link>
+            <button
+              className="nav_link"
+              onClick={() => scrollToSection("universidades")}
+            >
+              Universidades
+            </button>
           </li>
           <li className="header__nav__item">
-            <Link to="/library" className="nav_link">
-              Biblioteca Virtual
-            </Link>
+            <button
+              className="nav_link"
+              onClick={() => scrollToSection("tutorial")}
+            >
+              Tutorial
+            </button>
+          </li>
+          <li className="header__nav__item">
+            <button
+              className="nav_link"
+              onClick={() => scrollToSection("preguntas")}
+            >
+              Preguntas Frecuentes
+            </button>
           </li>
         </ul>
       </nav>
-      <div className="actions_container">
-        <div className="actions_container-img">
-          <img
-            src="/src/assets/images/userMenu.png"
-            onClick={handleOpenModal}
-            className="open-modal-button"
-            alt=""
-          />
-        </div>
-        <span>Bienvenido {username}</span>
+      <div className="buttons-container">
+        <Link to={"/register"} className="button-register">
+          <button>Registrarse</button>
+        </Link>
+        <Link to={"/login"} className="button-login">
+          <button>Iniciar sesión</button>
+        </Link>
       </div>
-      <ModalUser isOpen={isModalOpen} onClose={handleCloseModal} />
     </header>
   );
 };

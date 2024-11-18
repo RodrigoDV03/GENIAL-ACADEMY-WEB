@@ -46,12 +46,3 @@
     height: 12rem;
     padding: 1rem;
 }
-
-.u_card:hover {
-    cursor: pointer;
-    background-color: #63b6a0;
-}
-
-.link{
-    text-decoration: none;
-}

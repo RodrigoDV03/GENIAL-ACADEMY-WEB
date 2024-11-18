@@ -1,9 +1,10 @@
 .main-steps {
-    margin: 0 auto;
+    margin: 1.25rem auto;
     width: 80%;
 }
 
 .main-steps h1{
+    margin-bottom: 30px;
     color: black;
     text-align: center;
 }

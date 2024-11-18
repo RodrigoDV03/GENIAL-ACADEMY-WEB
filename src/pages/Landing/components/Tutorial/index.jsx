@@ -3,7 +3,7 @@ import "./styles.css";
 
 export const TutorialSection = () => {
   return (
-    <div className="t_screen">
+    <div id="tutorial" className="t_screen">
       <div className="t_title">
         <p>Tutorial</p>
       </div>

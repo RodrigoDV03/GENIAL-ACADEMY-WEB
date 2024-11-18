@@ -69,7 +69,7 @@ export const FaqSection = () => {
 
   return (
     <div className="faq_screen">
-      <div className="faq_title">Preguntas Frecuentes</div>
+      <div id="preguntas" className="faq_title">Preguntas Frecuentes</div>
       <div className="faq_content">
         {generateTiles()}
       </div>
