@@ -1,0 +1,114 @@
+
+.main{
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-content: center;
+    color: white;
+}
+
+.container--todolist{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container__list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list__text h1{
+    color: black;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.list__texts h2{
+    font-size: 20px;
+    font-weight: 600;
+    color: #24413a;
+}
+
+.list__add{
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 3rem;
+}
+
+.list__add input{
+    width: 31.25rem;
+    height: 4rem;
+    padding-left: 1.25rem;
+    border: 1.5px solid #AAAAAA;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#button__add{
+    background-color: #33534c;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    transition: background-color ease 0.3s;
+}
+
+#button__add:hover{
+    background-color: #226e60;
+}
+
+#button__add i{
+    font-size: 1.5rem;
+    color: black;
+}
+
+.task{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 17.5rem;
+}
+
+.list__task i{
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.list__task .task__check{
+    cursor: pointer;
+    width: 25px;
+    border: none;
+}
+
+.checked{
+    color: #555;
+    text-decoration: line-through;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.task__text{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: .625rem;
+}
+
+.task__add{
+    color: black;
+    font-size: 20px;
+}
