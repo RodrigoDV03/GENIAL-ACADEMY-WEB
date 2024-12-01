@@ -47,7 +47,7 @@ export const Courses = () => {
     };
 
     fetchAreas();
-  }, []);
+  }, [area_id]);
 
   useEffect(() => {
     const fetchUniversity = async () => {

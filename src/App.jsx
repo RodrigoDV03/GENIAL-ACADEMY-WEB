@@ -11,7 +11,9 @@ import Courses from './pages/Courses/Courses';
 import { LandingPage } from './pages/Landing/LandingPage';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
+import Level from "./pages/Level"
 import './App.css';
+import { ScoreProvider } from './context/ScoreContext';
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
         <Route 
           path="/*" 
           element={
+            <ScoreProvider>
             <div className="app-container">
               <Aside />
               <div className="main-content">
@@ -39,9 +42,11 @@ function App() {
                   <Route path="/cursos/:uni_id/:area_id/:course_id" element={<Courses />} />
                   <Route path="/libros" element={<Library />} />
                   <Route path="/list" element={<List />} />
+                  <Route path="/home/:uni_id/:area_id/:course_id/:theme_id/:level_id" element={<Level />}></Route>
                 </Routes>
               </div>
             </div>
+            </ScoreProvider>
           } 
         />
       </Routes>
