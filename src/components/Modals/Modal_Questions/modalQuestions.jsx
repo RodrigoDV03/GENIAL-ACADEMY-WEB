@@ -16,7 +16,7 @@ const ModalQuestions = ({ theme, isOpen, onClose }) => {
         <h1>Preguntas de {theme.name}</h1>
         <div className="levelsContainer">
           <div className="level">
-            <Link to={`${theme.id}/basic`}>
+          <Link to={`${theme.id}/basic`}>
               <div className="level__image basic"></div>
             </Link>
             <div className="level__title">

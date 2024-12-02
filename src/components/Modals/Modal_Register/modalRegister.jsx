@@ -10,7 +10,7 @@ const ModalRegister = ({ isOpen, onClose }) => {
         <div className="modal-Register-container">
             <div className="Contenido_Register">
                 <h1>Se guardó correctamente</h1>
-                <img src='/src/assets/images/Register_Success_Icon.png' className='Register_Success_Image' />
+                <img src='/src/assets/images/Register_Success_Icon.png' alt="Register_Success_Icon" className='Register_Success_Image' />
                 <Link to="/" className="Register_button" onClick={onClose}>
                     <div className='Register-link'>Ingresar</div>
                 </Link>
