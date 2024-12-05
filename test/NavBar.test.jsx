@@ -1,15 +1,28 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import NavBar from "./NavBar";
+import NavBar from "../src/components/NavBar/NavBar";
 
-// Mock localStorage
+// Mock del contexto useScore
+jest.mock("../src/context/ScoreContext", () => ({
+  useScore: jest.fn(),
+}));
+
+import { useScore } from "../src/context/ScoreContext";
+
+// Configuración previa a cada test
 beforeEach(() => {
+  // Simular datos en localStorage
   localStorage.setItem("username", "Rodrigo");
+
+  // Mockear el estado que devuelve useScore
+  useScore.mockReturnValue({
+    state: { score: 100 }, // Simula un estado válido
+  });
 });
 
 // Mock del componente ModalUser para simplificar pruebas
-jest.mock("../Modals/Modal_User/modalUser", () => {
+jest.mock("../src/components/Modals/Modal_User/modalUser", () => {
   return ({ isOpen, onClose }) =>
     isOpen && (
       <div role="dialog">
@@ -19,6 +32,7 @@ jest.mock("../Modals/Modal_User/modalUser", () => {
     );
 });
 
+// Test: Verifica que se muestra el mensaje de bienvenida con el nombre del usuario
 test("debe mostrar el mensaje de bienvenida con el nombre del usuario", () => {
   render(
     <Router>
@@ -29,6 +43,7 @@ test("debe mostrar el mensaje de bienvenida con el nombre del usuario", () => {
   expect(welcomeMessage).toBeInTheDocument();
 });
 
+// Test: Verifica que la imagen del usuario se renderiza
 test("debe renderizar la imagen del usuario", () => {
   render(
     <Router>
@@ -40,6 +55,7 @@ test("debe renderizar la imagen del usuario", () => {
   expect(userImage).toHaveAttribute("src", "/src/assets/images/userMenu.png");
 });
 
+// Test: Verifica que el modal se abre al hacer clic en la imagen del usuario
 test("debe abrir el modal al hacer clic en la imagen del usuario", () => {
   render(
     <Router>
@@ -48,7 +64,7 @@ test("debe abrir el modal al hacer clic en la imagen del usuario", () => {
   );
   const userImage = screen.getByAltText(/User/i);
 
-  // Simular clic en la imagen
+  // Simular clic en la imagen del usuario
   fireEvent.click(userImage);
 
   // Verificar que el modal se abre
@@ -56,6 +72,7 @@ test("debe abrir el modal al hacer clic en la imagen del usuario", () => {
   expect(modal).toBeInTheDocument();
 });
 
+// Test: Verifica que el modal se cierra al hacer clic en el botón de cierre
 test("debe cerrar el modal al hacer clic en el botón de cierre", () => {
   render(
     <Router>
@@ -71,6 +88,6 @@ test("debe cerrar el modal al hacer clic en el botón de cierre", () => {
   const closeButton = screen.getByText(/Cerrar/i);
   fireEvent.click(closeButton);
 
-  // Verificar que el modal no está presente
+  // Verificar que el modal ya no está presente
   expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 });

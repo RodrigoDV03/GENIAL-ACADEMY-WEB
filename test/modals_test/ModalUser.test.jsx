@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import ModalUser from "./ModalUser";
+import ModalUser from "../../src/components/Modals/Modal_User/ModalUser";
 
 beforeEach(() => {
   // Simular un usuario en localStorage

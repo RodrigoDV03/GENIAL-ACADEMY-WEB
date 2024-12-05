@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import ModalLogin from "./ModalLogin";
+import ModalLogin from "../../src/components/Modals/Modal_Login/ModalLogin";
 
 test("no debe renderizar el modal si isOpen es false", () => {
   render(

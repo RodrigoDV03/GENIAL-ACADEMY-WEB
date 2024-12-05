@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import ModalQuestions from "./modalQuestions";
+import ModalQuestions from "../../src/components/Modals/Modal_Questions/modalQuestions";
 
 // Mock de useParams para reflejar la relación con Courses
 jest.mock("react-router-dom", () => ({

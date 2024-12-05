@@ -1,19 +1,19 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Footer } from './index';
+import { Footer } from '../src/components/Footer/index';
 
 describe('Footer Component', () => {
-  test('debería representar el logotipo del pie de página', () => {
+  test("debería representar el logotipo del pie de página", () => {
     render(
       <Router>
         <Footer />
       </Router>
     );
-    
-    // Verificamos que el logo esté presente en el footer
-    const logo = screen.getByRole('img');  
-    expect(logo).toBeInTheDocument();
+  
+    // Buscar la imagen del logotipo por su texto alternativo
+    const logoImage = screen.getByAltText("Logotipo GenialAcademy");
+    expect(logoImage).toBeInTheDocument();
   });
 
   test('debería representar todos los enlaces de navegación del pie de página', () => {
@@ -38,14 +38,19 @@ describe('Footer Component', () => {
       </Router>
     );
 
-    // Buscamos las imágenes por su rol
-    const facebookButton = screen.getAllByRole('img')[0]; 
-    const instagramButton = screen.getAllByRole('img')[1]; 
-    const twitterButton = screen.getAllByRole('img')[2];   
-    
-    expect(facebookButton).toBeInTheDocument();
-    expect(instagramButton).toBeInTheDocument();
-    expect(twitterButton).toBeInTheDocument();
+  // Verificar cada ícono de redes sociales
+    const facebookIcon = screen.getByAltText("Facebook");
+    const instagramIcon = screen.getByAltText("Instagram");
+    const twitterIcon = screen.getByAltText("Twitter");
+
+    expect(facebookIcon).toBeInTheDocument();
+    expect(instagramIcon).toBeInTheDocument();
+    expect(twitterIcon).toBeInTheDocument();
+
+    // Verificar las rutas de las imágenes
+    expect(facebookIcon).toHaveAttribute("src", "/src/assets/images/facebook.png");
+    expect(instagramIcon).toHaveAttribute("src", "/src/assets/images/instagram.png");
+    expect(twitterIcon).toHaveAttribute("src", "/src/assets/images/twitter.png");
   });
 
   test('debería representar el texto de derechos de autor', () => {

@@ -7,7 +7,7 @@ export const Footer = () => {
         <footer>
             <div className="row_1">
                 <Link to={"/home"} className="logo">
-                    <img src="/src/assets/images/GENIALACADEMY_LOGO.png" alt="" />
+                    <img src="/src/assets/images/GENIALACADEMY_LOGO.png" alt="Logotipo GenialAcademy" />
                 </Link>
                 <div className="footer_nav">
                     <a className="footer__nav__item" href="#">Política de privacidad</a>
@@ -18,13 +18,13 @@ export const Footer = () => {
                 </div>
                 <div className="social_container">
                     <button className="social_item">
-                        <img src="/src/assets/images/facebook.png" />
+                        <img src="/src/assets/images/facebook.png" alt='Facebook'/>
                     </button>
                     <button className="social_item">
-                        <img src="/src/assets/images/instagram.png" />
+                        <img src="/src/assets/images/instagram.png" alt='Instagram'/>
                     </button>
                     <button className="social_item">
-                        <img src="/src/assets/images/twitter.png" />
+                        <img src="/src/assets/images/twitter.png" alt='Twitter'/>
                     </button>
                 </div>
             </div>

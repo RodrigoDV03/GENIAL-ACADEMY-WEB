@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import ModalRegister from "./ModalRegister";
+import ModalRegister from "../../src/components/Modals/Modal_Register/ModalRegister";
 
 test("no debe renderizar el modal si isOpen es false", () => {
   render(

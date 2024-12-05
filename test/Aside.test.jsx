@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import Aside from "./Aside";
+import Aside from "../src/components/Aside/Aside";
 
 describe('Aside Component', () => {
     test('Verificacion de enlaces de navegación', () => {
