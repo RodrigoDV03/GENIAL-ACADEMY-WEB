@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { registerUser, clearState } from "../../redux/features/register/registerSlice";
@@ -95,7 +95,7 @@ export const Register = () => {
                         </button>
 
                         <div className="login__link">
-                            <p>¿Ya tienes una cuenta? <Link to="/">Inicia sesión</Link></p>
+                            <p>¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link></p>
                         </div>
                     </form>
                 </div>
