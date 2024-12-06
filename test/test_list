@@ -1,0 +1,80 @@
+import unittest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+class TestToDoList(unittest.TestCase):
+
+    def setUp(self):
+        # Configura el driver de Selenium para Edge o cualquier otro navegador
+        self.driver = webdriver.Edge()
+        self.driver.get("http://localhost:5173/list")  # URL de la página de ToDo List en tu entorno local
+
+    def tearDown(self):
+        # Cierra el navegador después de la prueba
+        self.driver.quit()
+
+    def test_add_task(self):
+        driver = self.driver
+
+        # Encontrar el campo de texto para agregar una tarea
+        task_input = driver.find_element(By.CLASS_NAME, "task__write")
+        add_button = driver.find_element(By.ID, "button__add")
+
+        # Ingresar una nueva tarea con una demora simulada entre cada letra
+        task_text = "Nueva tarea"
+        for char in task_text:
+            task_input.send_keys(char)
+            time.sleep(0.2)  # Añade un retraso de 0.2 segundos entre cada carácter
+
+        add_button.click()
+
+        # Esperar que se actualicen las tareas
+        time.sleep(2)
+
+        # Verificar si la tarea aparece en la lista
+        task_text_element = driver.find_element(By.XPATH, "//p[contains(text(), 'Nueva tarea')]")
+        self.assertTrue(task_text_element.is_displayed(), "La tarea no fue agregada correctamente")
+
+
+    def test_mark_task_completed(self):
+        driver = self.driver
+
+        # Asegúrate de que hay al menos una tarea
+        self.test_add_task()
+
+        # Buscar el checkbox de la primera tarea
+        task_checkbox = driver.find_element(By.CSS_SELECTOR, ".task__check")
+
+        # Marcar la tarea como completada
+        task_checkbox.click()
+
+        # Esperar que el estado de la tarea se actualice
+        time.sleep(2)
+
+        # Verificar que el texto de la tarea tiene la clase "completed"
+        task_text = driver.find_element(By.XPATH, "//p[contains(text(), 'Nueva tarea')]")
+        self.assertTrue("completed" in task_text.get_attribute("class"), "La tarea no fue marcada como completada")
+
+    def test_add_empty_task(self):
+        driver = self.driver
+
+        # Dejar el campo de tarea vacío y hacer clic en el botón "Agregar"
+        task_input = driver.find_element(By.CLASS_NAME, "task__write")
+        add_button = driver.find_element(By.ID, "button__add")
+
+        task_input.send_keys("")  # Deja el campo vacío
+        add_button.click()
+
+        # Esperar que el estado de la tarea se actualice
+        time.sleep(2)
+
+        # Verificar que no se haya agregado una tarea vacía
+        try:
+            task_text = driver.find_element(By.XPATH, "//p[contains(text(), '')]")
+            self.fail("Se ha agregado una tarea vacía")
+        except:
+            pass  # La tarea vacía no debe agregarse, por lo que la prueba pasa
+
+if __name__ == "__main__":
+    unittest.main()
