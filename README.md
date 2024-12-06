@@ -249,30 +249,30 @@ npm run test:func
       }
 ## 🖥 Pruebas de Base de Datos con JMeter
 ### 🔧 Requisitos
-      1. Apache JMeter: Versión 5.5 o superior.
-      2. Driver JDBC de MySQL: com.mysql.jdbc.Driver.
-      3. Acceso a la base de datos genialacademy_db.
-      4. Configuración del Plan de Pruebas
+1. Apache JMeter: Versión 5.5 o superior.
+2. Driver JDBC de MySQL: com.mysql.jdbc.Driver.
+3. Acceso a la base de datos genialacademy_db.
+4. Configuración del Plan de Pruebas
 ### ⚙ Configuración de la Conexión JDBC
-      1. Nombre de la Configuración: Configuración de la Conexión JDBC.
-      2. Nombre de Variable Enlazado al Pool: mysql_pool.
-      3. Parámetros principales:
-      4. Máximo de conexiones: 0 (sin límite).
-      5. Timeout del Pool: 10,000 ms.
-      6. Edad máxima de las conexiones: 5,000 ms.
-      7. Query de validación: Activo.
-      8. Auto Commit: Verdadero.
+1. Nombre de la Configuración: Configuración de la Conexión JDBC.
+2. Nombre de Variable Enlazado al Pool: mysql_pool.
+3. Parámetros principales:
+4. Máximo de conexiones: 0 (sin límite).
+5. Timeout del Pool: 10,000 ms.
+6. Edad máxima de las conexiones: 5,000 ms.
+7. Query de validación: Activo.
+8. Auto Commit: Verdadero.
 ### 🛠 Configuración del Grupo de Hilos
-    - Número de Hilos (Usuarios Virtuales): 10.
-    - Periodo de Subida (Ramp-Up): 1 segundo.
-    - Iteraciones por hilo: 10.
-    - Modo de usuario: "Same user on each iteration".
+- Número de Hilos (Usuarios Virtuales): 10.
+- Periodo de Subida (Ramp-Up): 1 segundo.
+- Iteraciones por hilo: 10.
+- Modo de usuario: "Same user on each iteration".
 ### 🔍 Peticiones JDBC
-    select*from users;
-    SELECT * FROM users WHERE id = 1;
-    SELECT * FROM users WHERE district = 'Farrellfort';
-    SELECT * FROM users ORDER BY created_at DESC LIMIT 10;
-    SELECT COUNT(*) FROM users WHERE department = 'Arquitecto';
-    UPDATE users SET district = 'SJL' WHERE province= 'North Carolina'; 
+- select*from users;
+- SELECT * FROM users WHERE id = 1;
+- SELECT * FROM users WHERE district = 'Farrellfort';
+- SELECT * FROM users ORDER BY created_at DESC LIMIT 10;
+- SELECT COUNT(*) FROM users WHERE department = 'Arquitecto';
+- UPDATE users SET district = 'SJL' WHERE province= 'North Carolina'; 
 ### 👀 Visualizador de resultados
-    Se agregaron Árboles de resultados para poder observar los resultados de los test
+Se agregaron Árboles de resultados para poder observar los resultados de los test
