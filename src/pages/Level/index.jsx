@@ -4,12 +4,16 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ModalLevel from "../../components/Modals/Modal_Level/modalLevel";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {updateUser} from "../../redux/features/auth/authSlice"
 
 export const Level = () => {
   const params = useParams();
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
   const { uni_id, area_id, course_id, theme_id, level_id } = params;
+  const user = useSelector((state) => state.auth.user);
 
   //redireccion
   useEffect(() => {
@@ -51,7 +55,7 @@ export const Level = () => {
   const [openClose, setOpenClose] = useState(false);
   const [result, setResult] = useState({ coins: 0, correct: 0, incorrect: 0 });
 
-  function calculateResult() {
+function  calculateResult() {
     const coin = 3;
     const penaltyCoin = 1;
     const newResult = { coins: 0, correct: 0, incorrect: 0 };
@@ -80,7 +84,60 @@ export const Level = () => {
       payload: { points: newResult.correct, coins: newResult.coins },
     });*/
 
+    updateUserCoins(newResult.coins);
+    updateLocalUser();
+
     return true;
+  }
+
+  async function  updateUserCoins(coins) {
+    const token = localStorage.getItem("token");
+        try {
+            if (user) {
+                await axios.patch(
+                    `http://localhost:3000/api/user/${user.id}/coins`,
+                    {
+                        action: "increment",
+                        coins: coins
+                    },
+                    {
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                        "x-api-key":
+                          "genialacademyapi_4bc22ee0-922f-4cdb-a932-987ef5b7875b",
+                      },
+                    }
+                  );
+            }
+          
+        } catch (error) {
+          console.error("Error updating user coins:", error);
+        }
+  }
+
+  async function  updateLocalUser() {
+    const token = localStorage.getItem("token");
+        try {
+            if (user) {
+                const response = await axios.get(
+                    `http://localhost:3000/api/user/${user.id}`,
+                    {
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                        "x-api-key":
+                          "genialacademyapi_4bc22ee0-922f-4cdb-a932-987ef5b7875b",
+                      },
+                    }
+                  );
+                dispatch(updateUser(response.data.data));
+
+            }
+          
+        } catch (error) {
+          console.error("Error updating user coins:", error);
+        }
   }
 
   function handelSelection(number_q, select) {
