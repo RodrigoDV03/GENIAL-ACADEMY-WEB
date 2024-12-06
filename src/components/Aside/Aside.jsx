@@ -24,7 +24,7 @@ const Aside = () => {
         </div>
         <nav className="sidebar-content">
           <ul className="nav-list">
-            <Link  to={'/home'} className="nav-item_link">
+            <Link to={'/home'} className="nav-item_link">
               <li className={`nav-item ${activeLink === 'home' ? 'active' : ''}`} onClick={() => handleLinkClick('home')}>
                 <GoHome className='item-icon' /> Inicio
               </li>
@@ -39,11 +39,21 @@ const Aside = () => {
                 <IoBookOutline className='item-icon' /> Libros
               </li>
             </Link>
-           <Link to={'/list'} className="nav-item_link">
-            <li className={`nav-item ${activeLink === 'list' ? 'active' : ''}`} onClick={() => handleLinkClick('list')}>
+            <Link to={'/list'} className="nav-item_link">
+              <li className={`nav-item ${activeLink === 'list' ? 'active' : ''}`} onClick={() => handleLinkClick('list')}>
                 <LuListTodo className='item-icon' /> To do list
               </li>
-           </Link>
+            </Link>
+            <Link to={'/pomodoro'} className="nav-item_link">
+              <li className={`nav-item ${activeLink === 'pomodoro' ? 'active' : ''}`} onClick={() => handleLinkClick('pomodoro')}>
+                <TbClockHour4 className='item-icon' /> Pomodoro
+              </li>
+            </Link>
+            <Link to={'/logout'} className="nav-item_link">
+              <li className={`nav-item ${activeLink === 'logout' ? 'active' : ''}`} onClick={() => handleLinkClick('logout')}>
+                <FiLogOut className='item-icon' /> Cerrar sesión
+              </li>
+            </Link>
           </ul>
         </nav>
       </aside>

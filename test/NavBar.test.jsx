@@ -1,5 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
 import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "../src/components/NavBar/NavBar";
 
@@ -10,16 +12,17 @@ jest.mock("../src/context/ScoreContext", () => ({
 
 import { useScore } from "../src/context/ScoreContext";
 
-// Configuración previa a cada test
-beforeEach(() => {
-  // Simular datos en localStorage
-  localStorage.setItem("username", "Rodrigo");
-
-  // Mockear el estado que devuelve useScore
-  useScore.mockReturnValue({
-    state: { score: 100 }, // Simula un estado válido
-  });
-});
+// Configuración del mock de Redux
+const mockStore = configureStore([]);
+const initialState = {
+  auth: {
+    user: {
+      names: "Rodrigo",
+      coins: 100,
+    },
+  },
+};
+const store = mockStore(initialState);
 
 // Mock del componente ModalUser para simplificar pruebas
 jest.mock("../src/components/Modals/Modal_User/modalUser", () => {
@@ -32,23 +35,35 @@ jest.mock("../src/components/Modals/Modal_User/modalUser", () => {
     );
 });
 
+// Configuración previa a cada test
+beforeEach(() => {
+  // Mockear el estado que devuelve useScore
+  useScore.mockReturnValue({
+    state: { score: 100 }, // Simula un estado válido
+  });
+});
+
 // Test: Verifica que se muestra el mensaje de bienvenida con el nombre del usuario
 test("debe mostrar el mensaje de bienvenida con el nombre del usuario", () => {
   render(
-    <Router>
-      <NavBar />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <NavBar />
+      </Router>
+    </Provider>
   );
-  const welcomeMessage = screen.getByText(/Bienvenido Rodrigo/i);
+  const welcomeMessage = screen.getByText(/Hola Rodrigo/i);
   expect(welcomeMessage).toBeInTheDocument();
 });
 
 // Test: Verifica que la imagen del usuario se renderiza
 test("debe renderizar la imagen del usuario", () => {
   render(
-    <Router>
-      <NavBar />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <NavBar />
+      </Router>
+    </Provider>
   );
   const userImage = screen.getByAltText(/User/i);
   expect(userImage).toBeInTheDocument();
@@ -58,9 +73,11 @@ test("debe renderizar la imagen del usuario", () => {
 // Test: Verifica que el modal se abre al hacer clic en la imagen del usuario
 test("debe abrir el modal al hacer clic en la imagen del usuario", () => {
   render(
-    <Router>
-      <NavBar />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <NavBar />
+      </Router>
+    </Provider>
   );
   const userImage = screen.getByAltText(/User/i);
 
@@ -75,9 +92,11 @@ test("debe abrir el modal al hacer clic en la imagen del usuario", () => {
 // Test: Verifica que el modal se cierra al hacer clic en el botón de cierre
 test("debe cerrar el modal al hacer clic en el botón de cierre", () => {
   render(
-    <Router>
-      <NavBar />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <NavBar />
+      </Router>
+    </Provider>
   );
   const userImage = screen.getByAltText(/User/i);
 

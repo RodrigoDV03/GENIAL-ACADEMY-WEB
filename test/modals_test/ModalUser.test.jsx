@@ -1,7 +1,24 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
 import { MemoryRouter } from "react-router-dom";
 import ModalUser from "../../src/components/Modals/Modal_User/ModalUser";
+
+// Configuración de mock para Redux
+const mockStore = configureStore([]);
+const mockDispatch = jest.fn();
+
+// Mock de useDispatch y useNavigate
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: () => mockDispatch,
+}));
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
 
 beforeEach(() => {
   // Simular un usuario en localStorage
@@ -14,10 +31,14 @@ afterEach(() => {
 });
 
 test("no debe renderizar el modal si isOpen es false", () => {
+  const store = mockStore({});
+
   render(
-    <MemoryRouter>
-      <ModalUser isOpen={false} onClose={jest.fn()} />
-    </MemoryRouter>
+    <Provider store={store}>
+      <MemoryRouter>
+        <ModalUser isOpen={false} onClose={jest.fn()} />
+      </MemoryRouter>
+    </Provider>
   );
 
   // Verificar que el título del modal no está en el DOM
@@ -26,10 +47,14 @@ test("no debe renderizar el modal si isOpen es false", () => {
 });
 
 test("debe renderizar el modal y mostrar el nombre de usuario si isOpen es true", () => {
+  const store = mockStore({});
+
   render(
-    <MemoryRouter>
-      <ModalUser isOpen={true} onClose={jest.fn()} />
-    </MemoryRouter>
+    <Provider store={store}>
+      <MemoryRouter>
+        <ModalUser isOpen={true} onClose={jest.fn()} />
+      </MemoryRouter>
+    </Provider>
   );
 
   // Verificar que el título del modal muestra el nombre de usuario
@@ -43,11 +68,14 @@ test("debe renderizar el modal y mostrar el nombre de usuario si isOpen es true"
 
 test("debe llamar a onClose al hacer clic en el botón de cierre", () => {
   const mockOnClose = jest.fn();
+  const store = mockStore({});
 
   render(
-    <MemoryRouter>
-      <ModalUser isOpen={true} onClose={mockOnClose} />
-    </MemoryRouter>
+    <Provider store={store}>
+      <MemoryRouter>
+        <ModalUser isOpen={true} onClose={mockOnClose} />
+      </MemoryRouter>
+    </Provider>
   );
 
   // Simular clic en el botón de cierre
@@ -59,17 +87,21 @@ test("debe llamar a onClose al hacer clic en el botón de cierre", () => {
 });
 
 test("debe renderizar los enlaces correctamente", () => {
+  const store = mockStore({});
+
   render(
-    <MemoryRouter>
-      <ModalUser isOpen={true} onClose={jest.fn()} />
-    </MemoryRouter>
+    <Provider store={store}>
+      <MemoryRouter>
+        <ModalUser isOpen={true} onClose={jest.fn()} />
+      </MemoryRouter>
+    </Provider>
   );
 
   // Verificar enlace a "To do list"
   const todoListLink = screen.getByText(/To do list/i).closest("a");
   expect(todoListLink).toHaveAttribute("href", "/todolist");
 
-  // Verificar enlace a "Cerrar Sesión"
-  const logoutLink = screen.getByText(/Cerrar Sesión/i).closest("a");
-  expect(logoutLink).toHaveAttribute("href", "/");
+  // Verificar que el botón de "Cerrar Sesión" esté presente
+  const logoutButton = screen.getByText(/Cerrar Sesión/i);
+  expect(logoutButton).toBeInTheDocument();
 });
