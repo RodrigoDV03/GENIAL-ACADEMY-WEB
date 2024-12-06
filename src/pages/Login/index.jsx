@@ -7,7 +7,7 @@ import ModalErrorLogin from "../../components/Modals/Modal_Login/modalErrorLogin
 import "./stylesLogin.css";
 
 export const Login = () => {
-    const [formValues, setFormValues] = useState({username: "", password: "" });
+    const [formValues, setFormValues] = useState({identifier: "", password: "" });
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
     const dispatch = useDispatch();
@@ -48,7 +48,7 @@ export const Login = () => {
                     <form className="login__form" onSubmit={handleSubmit}>
                         <div className="login__input__box">
                             <div className="login__input__title">Nombre de usuario:</div>
-                            <input type="text" name="username" value={formValues.username} onChange= 
+                            <input type="text" name="identifier" value={formValues.identifier} onChange= 
                             {handleChange} required />
                         </div>
                         <div className="login__input__box">

@@ -1,12 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./Welcome.css";
 
 const Welcome = () => {
-  const username = localStorage.getItem("username");
+  const username = useSelector((state) => state.auth.user?.names);
   return (
     <div className="welcome-container">
       <div className="welcome-content">
-        <h1>Bievenida {username}</h1>
+        <h1>Hola {username}</h1>
         <p className="welcome-paragraph">
           Estamos emocionados de tenerte aquí. Este es tu espacio personal donde
           puedes monitorear tu progreso académico, interactuar con tus materias

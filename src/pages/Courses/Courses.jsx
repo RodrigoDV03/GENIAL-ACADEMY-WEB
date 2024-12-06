@@ -1,7 +1,7 @@
 import "./Courses.css";
 // import axios from "axios";
 import { useState, useEffect } from "react";
-import ModalQuestions from "../../components/Modals/Modal_Questions/modalQuestion";
+import ModalQuestions from "../../components/Modals/Modal_Questions/ModalQuestions";
 import { useNavigate, useParams } from "react-router-dom";
 
 export const Courses = () => {
