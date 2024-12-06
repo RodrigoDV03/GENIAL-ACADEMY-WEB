@@ -12,6 +12,7 @@
 
 ## 📋 Propósito del Proyecto
 El propósito del proyecto es desarrollar una plataforma educativa web destinada a estudiantes preuniversitarios en el Perú, con el objetivo de mejorar la preparación para los exámenes de admisión a universidades. Esta plataforma proporcionará acceso equitativo a recursos educativos de alta calidad, adaptados a las necesidades y contextos específicos de los estudiantes peruanos
+
 ---
 ## 💻 Funcionalidades
 
