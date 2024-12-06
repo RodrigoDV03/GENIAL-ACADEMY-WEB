@@ -44,12 +44,6 @@ const Aside = () => {
                 <LuListTodo className='item-icon' /> To do list
               </li>
            </Link>
-            <li className={`nav-item ${activeLink === 'pomodoro' ? 'active' : ''}`} onClick={() => handleLinkClick('pomodoro')}>
-              <TbClockHour4 className='item-icon' /> Pomodoro
-            </li>
-            <li className={`nav-item ${activeLink === 'cerrar' ? 'active' : ''}`} onClick={() => handleLinkClick('cerrar')}>
-              <FiLogOut className='item-icon' /> Cerrar sesión
-            </li>
           </ul>
         </nav>
       </aside>

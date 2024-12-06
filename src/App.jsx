@@ -42,7 +42,7 @@ function App() {
                   <Route path="/cursos/:uni_id/:area_id/:course_id" element={<Courses />} />
                   <Route path="/libros" element={<Library />} />
                   <Route path="/list" element={<List />} />
-                  <Route path="/home/:uni_id/:area_id/:course_id/:theme_id/:level_id" element={<Level />}></Route>
+                  <Route path="/cursos/:uni_id/:area_id/:course_id/:theme_id/:level_id" element={<Level />} />
                 </Routes>
               </div>
             </div>

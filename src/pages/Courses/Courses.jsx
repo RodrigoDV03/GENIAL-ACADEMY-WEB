@@ -1,5 +1,5 @@
 import "./Courses.css";
-// import axios from "axios";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import ModalQuestions from "../../components/Modals/Modal_Questions/ModalQuestions";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,8 +8,8 @@ export const Courses = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedTheme, setCurrentTheme] = useState("");
 
-  const [university, setUniversity] = useState(null);
-  const [area, setArea] = useState(null);
+  const [course, setCourse] = useState(null);
+  const [topics, setTopics] = useState([]);
 
   const navigate = useNavigate();
 
@@ -19,61 +19,48 @@ export const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const fetchAreas = async () => {
+    const fetchCourse = async () => {
       const token = localStorage.getItem("token");
       try {
         const response = await axios.get(
-          "https://genial-academy-backend.onrender.com/areas/findAll",
+          `http://localhost:3000/api/university/${uni_id}/area/${area_id}/course/${course_id}`,
           {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
+              "x-api-key":
+                "genialacademyapi_4bc22ee0-922f-4cdb-a932-987ef5b7875b",
             },
           }
         );
-        console.log(response.data[0]);
-        let a = response.data.filter(
-          (areas) =>
-            areas.codArea
-              .toLowerCase()
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "")
-              .replace(/ /g, "") === area_id.toLowerCase()
+        setCourse(response.data.data);
+      } catch (error) {
+        console.error("Error fetching areas data:", error);
+      }
+    };
+    const fetchTopics = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/api/university/${uni_id}/area/${area_id}/course/${course_id}/topics`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+              "x-api-key":
+                "genialacademyapi_4bc22ee0-922f-4cdb-a932-987ef5b7875b",
+            },
+          }
         );
-        setArea(a[0]);
+        setTopics(response.data.data);
       } catch (error) {
         console.error("Error fetching areas data:", error);
       }
     };
 
-    fetchAreas();
-  }, [area_id]);
-
-  useEffect(() => {
-    const fetchUniversity = async () => {
-      const token = localStorage.getItem("token");
-      try {
-        const response = await axios.get(
-          /**  /home/unmsm/ */
-          `https://genial-academy-backend.onrender.com/universities/findAll`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        let uni = response.data.filter(
-          (university) =>
-            university.acronym.toLowerCase() === uni_id.toLowerCase()
-        );
-        setUniversity(uni[0]);
-      } catch (error) {
-        console.error("Error fetching university data:", error);
-      }
-    };
-
-    fetchUniversity();
-  }, [uni_id]);
+    fetchCourse();
+    fetchTopics();
+  }, [uni_id, area_id, course_id]);
 
   const handleOpenModal = (theme) => {
     setCurrentTheme(theme);
@@ -84,96 +71,27 @@ export const Courses = () => {
     setModalOpen(false);
   };
 
-  function getThemesById(uni_id, area_id, course_id) {
-    return [
-      {
-        id: "lacomunicacion",
-        name: "La comunicación",
-      },
-      {
-        id: "planesdellenguaje",
-        name: "Planes del lenguaje",
-      },
-      {
-        id: "foneticayfonologia",
-        name: "Fonética y fonología",
-      },
-      {
-        id: "concurrenciadevocales",
-        name: "Concurrencia de vocales",
-      },
-      {
-        id: "tildacion",
-        name: "Tildación",
-      },
-      {
-        id: "morfologia",
-        name: "Morfología",
-      },
-      {
-        id: "semantica",
-        name: "Semántica",
-      },
-      {
-        id: "sustantivo",
-        name: "Sustantivo",
-      },
-      {
-        id: "eladjetivoylosdeterminantes",
-        name: "El adjetivo y los determinantes",
-      },
-      {
-        id: "elpronombre",
-        name: "El pronombre",
-      },
-      {
-        id: "elverboysusclases",
-        name: "El verbo y sus clases",
-      },
-      {
-        id: "elverbo",
-        name: "El verbo",
-      },
-      {
-        id: "eladverbio",
-        name: "El adverbio",
-      },
-      {
-        id: "laconjuncionylapreposicion",
-        name: "La conjunción y la preposición",
-      },
-      {
-        id: "laoracion",
-        name: "La oración",
-      },
-      {
-        id: "elpredicado",
-        name: "El predicado",
-      },
-      {
-        id: "oracioncompuestaI",
-        name: "Oración compuesta I",
-      },
-      {
-        id: "oracioncompuestaII",
-        name: "Oración compuesta II",
-      },
-    ];
+  function genertatePath() {
+    if (course) {
+      return course.path.map((item, index) => (
+        <>
+        {index == 0 ? "" : " > "}
+          {item.name}
+        </>
+      ))
+    }
   }
-  const THEMES = getThemesById(uni_id, area_id, course_id);
 
-  const filteredThemes = THEMES.filter((theme) =>
+  const filteredThemes = topics.filter((theme) =>
     theme.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const colors = ["#D99", "#DC8", "#8D8", "#DA5", "#78E"];
-
-  function themeCard(theme, index) {
+  function themeCard(theme) {
     return (
       <div className="theme__container" onClick={() => handleOpenModal(theme)}>
         <div
           className="theme__color"
-          style={{ background: colors[index] }}
+          style={{ background: theme.thumbnail }}
         ></div>
         <div className="themes__title">{theme.name}</div>
       </div>
@@ -189,8 +107,7 @@ export const Courses = () => {
       <main>
         <div id="navigation">
           <h4 id="btnunmsm">
-            {university ? university.acronym : uni_id} &gt;{" "}
-            {area ? area.codArea : area_id} &gt; {course_id}
+           {genertatePath()}
           </h4>
           <button
             name="btnregresar"
@@ -198,7 +115,7 @@ export const Courses = () => {
             onClick={() => navigate(-1)}
           ></button>
         </div>
-        <h1>{course_id.toUpperCase()}</h1>
+        <h1>{course ? course.name : ""}</h1>
         <div className="container-search">
           <form action="">
             <input

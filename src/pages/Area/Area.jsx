@@ -1,149 +1,64 @@
 import { useEffect, useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 import "./Area.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 export const Area = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const [university, setUniversity] = useState(null);
+  const [courses, setCourses] = useState([]);
   const [area, setArea] = useState(null);
   const { uni_id, area_id } = params;
 
   useEffect(() => {
-    const fetchAreas = async () => {
+    const fetchArea = async () => {
       const token = localStorage.getItem("token");
       try {
         const response = await axios.get(
-          "https://genial-academy-backend.onrender.com/areas/findAll",
+          `http://localhost:3000/api/university/${uni_id}/area/${area_id}`,
           {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
+              "x-api-key":
+                "genialacademyapi_4bc22ee0-922f-4cdb-a932-987ef5b7875b",
             },
           }
         );
-
-        console.log(response.data[0]);
-        let a = response.data.filter(
-          (areas) =>
-            areas.codArea
-              .toLowerCase()
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "")
-              .replace(/ /g, "") === area_id.toLowerCase()
-        );
-        setArea(a[0]);
+        setArea(response.data.data);
       } catch (error) {
         console.error("Error fetching areas data:", error);
       }
     };
-
-    fetchAreas();
-  }, [area_id]);
-
-  useEffect(() => {
-    const fetchUniversity = async () => {
+    const fetchCourses = async () => {
       const token = localStorage.getItem("token");
       try {
         const response = await axios.get(
-          /**  /home/unmsm/ */
-          `https://genial-academy-backend.onrender.com/universities/findAll`,
+          `http://localhost:3000/api/university/${uni_id}/area/${area_id}/courses`,
           {
             headers: {
+              "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
+              "x-api-key":
+                "genialacademyapi_4bc22ee0-922f-4cdb-a932-987ef5b7875b",
             },
           }
         );
-        let uni = response.data.filter(
-          (university) =>
-            university.acronym.toLowerCase() === uni_id.toLowerCase()
-        );
-        setUniversity(uni[0]);
+        setCourses(response.data.data);
       } catch (error) {
-        console.error("Error fetching university data:", error);
+        console.error("Error fetching courses data:", error);
       }
     };
-
-    fetchUniversity();
-  }, [uni_id]);
-
-  function getCoursesById(uni_id, area_id) {
-    return [
-      {
-        id: "aritmetica",
-        name: "Aritmética",
-      },
-      {
-        id: "geometria",
-        name: "Geometría",
-      },
-      {
-        id: "algebra",
-        name: "Álgebra",
-      },
-      {
-        id: "trigonometria",
-        name: "Trigonometría",
-      },
-      {
-        id: "filosofia",
-        name: "Filosofía",
-      },
-      {
-        id: "literatura",
-        name: "Literatura",
-      },
-      {
-        id: "lenguaje",
-        name: "Lenguaje",
-      },
-      {
-        id: "habilidad_matematica",
-        name: "Habilidad Matemática",
-      },
-      {
-        id: "historia_universal",
-        name: "Historia Universal",
-      },
-      {
-        id: "historia_peru",
-        name: "Historia del Perú",
-      },
-      {
-        id: "psicologia",
-        name: "Psicología",
-      },
-      {
-        id: "economia",
-        name: "Economía",
-      },
-      {
-        id: "quimica",
-        name: "Química",
-      },
-      {
-        id: "civica",
-        name: "Cívica",
-      },
-      {
-        id: "biologia",
-        name: "Biología",
-      },
-      {
-        id: "fisica",
-        name: "Física",
-      },
-    ];
-  }
-
-  const COURSES = getCoursesById(uni_id, area_id);
+    fetchArea();
+    fetchCourses();
+  }, [area_id, uni_id]);
 
   function courseCard(course) {
+    console.log(courses.thumbnail)
     return (
-      <Link to={course.id} className="link">
+      <Link to={course.slug} className="link">
         <div className="circle-button">
-          <img src={`/src/assets/images/${course.id}.png`} alt={course.name} />
+          <img src={course.thumbnail} alt={course.name} />
           <span>{course.name}</span>
         </div>
       </Link>
@@ -152,10 +67,21 @@ export const Area = () => {
 
   function generateGrid() {
     const html = [];
-    COURSES.forEach((course) => {
+    courses.forEach((course) => {
       html.push(courseCard(course));
     });
     return html;
+  }
+
+  function genertatePath() {
+    if (area) {
+      return area.path.map((item, index) => (
+        <>
+        {index == 0 ? "" : " > "}
+          {item.name}
+        </>
+      ))
+    }
   }
 
   return (
@@ -167,8 +93,7 @@ export const Area = () => {
           onClick={() => navigate(-1)}
         ></button>
          <h4 id="btnunmsm">
-          {university ? university.acronym : uni_id} &gt;{" "}
-          {area ? area.codArea : area_id}
+          {genertatePath()}
         </h4>
       </div>
       <section id="section1">
@@ -181,14 +106,11 @@ export const Area = () => {
         </div>
         <div id="contenedor2">
           <h1 id="titulo">
-            BIENVENIDO AL
-            <br /> {area ? area.codArea : area_id}
+            {area ? area.title : area_id}
           </h1>
           <div id="container">
             <h3>
-              En esta sección encontrarás material educativo para <br />
-              ayudar a tu preparación referente al área de <br />
-              {area ? area.name : area_id}.
+              {area ? area.description : area_id}.
             </h3>
           </div>
         </div>
