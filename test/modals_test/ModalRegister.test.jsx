@@ -6,7 +6,7 @@ import ModalRegister from "../../src/components/Modals/Modal_Register/ModalRegis
 test("no debe renderizar el modal si isOpen es false", () => {
   render(
     <MemoryRouter>
-      <ModalRegister isOpen={false} onClose={jest.fn()} />
+      <ModalRegister isOpen={false} message="Se guardó correctamente" onClose={jest.fn()} />
     </MemoryRouter>
   );
 
@@ -18,7 +18,7 @@ test("no debe renderizar el modal si isOpen es false", () => {
 test("debe renderizar el modal con el contenido correcto si isOpen es true", () => {
   render(
     <MemoryRouter>
-      <ModalRegister isOpen={true} onClose={jest.fn()} />
+      <ModalRegister isOpen={true} message="Se guardó correctamente" onClose={jest.fn()} />
     </MemoryRouter>
   );
 
@@ -27,7 +27,7 @@ test("debe renderizar el modal con el contenido correcto si isOpen es true", () 
   expect(modalTitle).toBeInTheDocument();
 
   // Verificar que la imagen se renderiza correctamente
-  const successImage = screen.getByAltText(/Register_Success_Icon/i); // Asegúrate de agregar el atributo alt en la imagen del componente.
+  const successImage = screen.getByAltText(/Register_Success_Icon/i);
   expect(successImage).toBeInTheDocument();
 });
 
@@ -36,7 +36,7 @@ test("debe llamar a onClose al hacer clic en el botón 'Ingresar'", () => {
 
   render(
     <MemoryRouter>
-      <ModalRegister isOpen={true} onClose={mockOnClose} />
+      <ModalRegister isOpen={true} message="Se guardó correctamente" onClose={mockOnClose} />
     </MemoryRouter>
   );
 
